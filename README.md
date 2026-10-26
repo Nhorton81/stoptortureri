@@ -1,4 +1,4 @@
-# Reform Solitary Confinement RI (stoptortureri.org)
+# Reform Solitary Confinement RI (stoptortureri.com)
 
 Plain static copy of the Wix site at closehighside.wixsite.com/closehighside, rebuilt October 2026. No build step: every page is a hand-editable `.html` file.
 
@@ -13,9 +13,9 @@ Plain static copy of the Wix site at closehighside.wixsite.com/closehighside, re
 1. Create a GitHub repo and push this folder to it.
 2. In the repo, go to Settings → Pages, choose "Deploy from a branch", pick `main` and `/ (root)`.
 
-## Connecting stoptortureri.org
+## Connecting stoptortureri.com
 
-1. In Settings → Pages, enter `stoptortureri.org` as the custom domain. GitHub adds a `CNAME` file.
+1. In Settings → Pages, enter `stoptortureri.com` as the custom domain. GitHub adds a `CNAME` file.
 2. At the domain registrar, add A records for `@` pointing to `185.199.108.153`, `185.199.109.153`, `185.199.110.153` and `185.199.111.153`, plus a CNAME for `www` pointing to `<your-github-username>.github.io`.
 3. Once DNS resolves, tick "Enforce HTTPS".
 
