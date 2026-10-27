@@ -21,6 +21,6 @@ Plain static copy of the Wix site at closehighside.wixsite.com/closehighside, re
 
 ## What changed from Wix
 
-- **Email sign-up** opens the visitor's email app with a message to reformsolitaryri@gmail.com, since a static site cannot store submissions. Export the existing subscriber list from Wix before closing that account.
+- **Email sign-up** sends each sign-up to brobinson@opendoorsri.org through FormSubmit (formsubmit.co, free, no account). Export the existing subscriber list from Wix before closing that account.
 - **Fonts:** Wix's Avenir and DIN fonts are licensed for Wix only, so the site uses close open-licence matches (Figtree, Barlow Condensed).
 - **Not carried over:** the Wix blog, which only held Wix's sample posts, and a PDF viewer on the hidden Attempted Reforms page that already showed nothing.

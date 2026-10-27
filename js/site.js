@@ -7,15 +7,36 @@ document.querySelectorAll('.menu-toggle').forEach(function (btn) {
   });
 });
 
-// Email sign-up: opens a pre-filled email to the coalition inbox.
+// Email sign-up: FormSubmit emails each sign-up to the address in data-endpoint.
 document.querySelectorAll('form.signup').forEach(function (form) {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var email = form.querySelector('input[type=email]').value;
-    var body = 'Please add me to the email list: ' + email;
-    window.location.href = 'mailto:' + form.dataset.to +
-      '?subject=' + encodeURIComponent('Email updates sign-up') +
-      '&body=' + encodeURIComponent(body);
-    form.querySelector('.thanks').hidden = false;
+    var button = form.querySelector('button');
+    var thanks = form.querySelector('.thanks');
+    button.disabled = true;
+    fetch(form.dataset.endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        message: email + ' would like to sign up for the Stop Torture newsletter.',
+        _subject: 'Stop Torture newsletter sign-up',
+        _template: 'basic',
+        _captcha: 'false'
+      })
+    }).then(function (res) {
+      return res.json().then(function (data) {
+        if (!res.ok || String(data.success) !== 'true') throw new Error(data.message);
+      });
+    }).then(function () {
+      thanks.textContent = 'Thanks for signing up!';
+      form.reset();
+    }).catch(function () {
+      thanks.textContent = 'Sorry, that did not go through. Please try again later.';
+    }).then(function () {
+      thanks.hidden = false;
+      button.disabled = false;
+    });
   });
 });
